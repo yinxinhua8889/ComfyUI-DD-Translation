@@ -1,0 +1,25 @@
+{
+    "Main": "主要设置",
+    "Enable Image Feed": "启用图像输入",
+    "Enable Debug (py and js)": "启用调试(py和js)",
+    "This will enable debug messages in the console and in the python console respectively, no need to restart the server, but do reload the webui": "这将在控制台和Python控制台中启用调试消息，无需重启服务器，但需要重新加载网页界面",
+    
+    "Note+": "附加选项",
+    
+    "PostShot": "PostShot",
+    "Path to Postshot CLI": "Postshot CLI路径",
+    "The path to the postshot CLI": "Postshot命令行工具的路径",
+    
+    "Input & Output Sidebar": "输入/输出侧边栏",
+    "Default sort mode": "默认排序方式",
+    "Resolution of the images": "图像分辨率",
+    "It's recommended to keep it at 512px": "建议保持在512px",
+    "Number of images to fetch": "获取图像数量",
+    "This setting affects the input/output sidebar to determine how many images to fetch per pagination (pagination is not yet supported so for now it's the static total)": "此设置影响输入/输出侧边栏，决定每页获取的图像数量（分页功能尚未支持，所以目前为静态总数）",
+    
+    "Modified": "修改时间",
+    "无": "无",
+    "Modified-Reverse": "修改时间-倒序",
+    "名称": "名称",
+    "Name-Reverse": "名称-倒序"
+}

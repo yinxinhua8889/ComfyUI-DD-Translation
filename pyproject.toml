@@ -1,0 +1,12 @@
+[project]
+name = "ComfyUI-DD-Translation"
+description = "A translation branch project.)"
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/1761696257/ComfyUI-DD-Translation/tree/Dontdrunk"
+
+[tool.comfy]
+PublisherId = "Dontdrunk"
+DisplayName = "ComfyUI-DD-Translation"
