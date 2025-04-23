@@ -18,9 +18,7 @@ class TExe {
 
   // 不需要翻译的设置项列表
   nativeTranslatedSettings = [
-    "Comfy", "画面", "外观", "3D", "遮罩编辑器", "节点", 
-    "EasyUse节点", "对齐", "RG节点", "自定义脚本", 
-    "MTB节点", "KJ节点", "语言", "全局输入", "Cryslools工具组"
+    "Comfy", "画面", "外观", "3D", "遮罩编辑器",
   ];
 
   constructor() {

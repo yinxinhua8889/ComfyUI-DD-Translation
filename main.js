@@ -23,12 +23,9 @@ export class TUtils {
     return chineseRegex.test(text);
   }
 
-  // 不需要翻译的设置项列表 - 移除了色彩主题相关项
+  // 不需要翻译的设置项列表
   static nativeTranslatedSettings = [
-    "Comfy", "画面", "外观", "3D", "遮罩编辑器", "节点", 
-    "EasyUse节点", "对齐", "RG节点", "自定义脚本", 
-    "MTB节点", "KJ节点", "语言", "全局输入", "Cryslools工具组",
-    "节点组件", "宏"
+    "Comfy", "画面", "外观", "3D", "遮罩编辑器", 
   ];
 
   static setLocale(locale) {
@@ -81,23 +78,9 @@ export class TUtils {
             TUtils.T.Menu[key] = originalMenu[key];
           }
         }
-        
-        // 特别过滤掉所有色彩主题相关的翻译
-        if (TUtils.T.Menu["ColorPalette"]) delete TUtils.T.Menu["ColorPalette"];
-        if (TUtils.T.Menu["Theme"]) delete TUtils.T.Menu["Theme"];
-        if (TUtils.T.Menu["Toggle Theme"]) delete TUtils.T.Menu["Toggle Theme"];
-        if (TUtils.T.Menu["色彩主题"]) delete TUtils.T.Menu["色彩主题"];
-        if (TUtils.T.Menu["主题"]) delete TUtils.T.Menu["主题"];
       } else {
         // 合并NodeCategory 到 Menu
         TUtils.T.Menu = Object.assign(TUtils.T.Menu || {}, TUtils.T.NodeCategory || {});
-        
-        // 特别过滤掉所有色彩主题相关的翻译
-        if (TUtils.T.Menu["ColorPalette"]) delete TUtils.T.Menu["ColorPalette"];
-        if (TUtils.T.Menu["Theme"]) delete TUtils.T.Menu["Theme"];
-        if (TUtils.T.Menu["Toggle Theme"]) delete TUtils.T.Menu["Toggle Theme"];
-        if (TUtils.T.Menu["色彩主题"]) delete TUtils.T.Menu["色彩主题"];
-        if (TUtils.T.Menu["主题"]) delete TUtils.T.Menu["主题"];
       }
       
       // 提取 Node 中 key 到 Menu
@@ -488,7 +471,7 @@ export class TUtils {
           $el("td", [
             $el("label", {
               for: id.replaceAll(".", "-"),
-              textContent: "AGLTranslation-langualge",
+              textContent: "Translation-langualge",
             }),
           ]),
           $el("td", [

@@ -1,7 +1,4 @@
-{
-    "KJNodes": "KJ节点",
-
-    "constants": "常量",
+{   "constants": "常量",
     "masking": "遮罩",
     "generate": "生成",
     "experiments": "实验",

@@ -115,7 +115,7 @@
     "Import": "Импорт",
     "Template": "Шаблон",
     "Delete": "Удалить",
-    "AGLTranslation-langualge": "AGL - язык интерфейса",
+    "Translation-langualge": "AGL - язык интерфейса",
     "Node widget/input conversion sub-menus": "Преобразования вход/виджет ноды подменю",   
     "In the node context menu, place the entries that convert between input/widget in sub-menus.": "Разместить к контекстном меню ноды пункты, преобразующие вход/виджет, в подменю.",
     "Link Render Mode": "Связи показываются как",

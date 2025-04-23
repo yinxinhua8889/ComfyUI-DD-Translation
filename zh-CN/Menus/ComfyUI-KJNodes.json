@@ -1,4 +1,5 @@
-{ 
+{   "KJNodes": "💥KJ节点",
+
     "browserStatus": "浏览器状态",
     "KJNodes: 🟢 Stoplight browser status icon 🔴": "🟢红绿灯浏览器状态🔴",
 
@@ -17,6 +18,10 @@
     "Set Get Menu": "设置与获取菜单",
     "KJNodes: Make Set/Get -nodes defaults (turn off and reload to disable)": "启用 Set/Get 节点（关闭并重载以禁用）",
 
+    "MiddleClickDefault": "中键默认添加节点",
+    "SetGetMenu": "设定设置/获取节点菜单",
+    "KJNodes: Make Set/Get -nodes defaults": "将设置/获取节点设为默认选项",
+    "Adds Set/Get nodes to the top or bottom of the list of available node suggestions.": "将设置/获取节点添加到可用节点建议列表的顶部或底部。",
 
     "ease_in": "渐进",
     "ease_out": "渐出",
