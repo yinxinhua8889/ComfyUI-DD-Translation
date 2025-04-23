@@ -1,6 +1,6 @@
-# ComfyUI-DD-Translation
-
 ComfyUI 中文翻译插件
+
+本项目是基于 [AIGODLIKE-ComfyUI-Translation](https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation) 的衍生分支，在此特别感谢原项目的开发者们对开源社区的杰出贡献。正是因为有人愿意成为先驱者，后人才能继承前人的薪火.
 
 ## 项目背景
 
@@ -49,7 +49,7 @@ ComfyUI 中文翻译插件
 ## 更新日志
 
 ### 2025-4-23
-- 删除大部分过时翻译内容，重构最新节点的翻译内容。
+- 删除大部分过时翻译内容，重构最新节点的翻译内容
 - 对 KJNodes 节点进行补充修正，添加"中键默认添加节点"和"设定设置/获取节点菜单"的翻译
 - 全面重构 rgthree-comfy 节点翻译，支持最新版本界面
 - 为 Crystools 监视器界面添加缺失的翻译选项
