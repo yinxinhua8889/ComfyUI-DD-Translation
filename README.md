@@ -1,6 +1,6 @@
 # ComfyUI-DD-Translation
 
-该项目是 [AIGODLIKE/AIGODLIKE-ComfyUI-Translation](https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation) 的延续版本。
+ComfyUI 中文翻译插件
 
 ## 项目背景
 
@@ -55,6 +55,9 @@
 - 为 Crystools 监视器界面添加缺失的翻译选项
 - 重构 ComfyUI-Custom-Scripts 插件翻译，添加带有 🐍 符号的新选项翻译
 - 补充 ComfyUI-Custom-Scripts 工具提示和说明文本的翻译
+- 修复了右键菜单中部分翻译失效的BUG
+- 添加了更多右键菜单项的翻译
+- 支持新增的节点和功能
 
 ### 2025-4-22
 - 修复了最新版本 ComfyUI 的一些兼容性问题
