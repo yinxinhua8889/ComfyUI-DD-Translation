@@ -156,12 +156,23 @@
     "Delete Group Node": "删除组节点",
     "Open in MaskEditor": "在遮罩编辑器中打开",
     "Open in SAM Detector": "在SAM检测中打开",
+    
+    "Open preview": "打开预览",
+    "Save preview": "保存预览",
+    "Copy output filepath": "复制输出文件路径",
+    "Save workflow image": "保存工作流图像",
+    "Pause preview": "暂停预览",
+    "Hide preview": "隐藏预览",
+    "Sync preview": "同步预览",
+    "Mute Preview": "静音预览",
+
     "Import": "导入",
     "Export": "导出",
     "svg": "svg",
     "svg (no embedded workflow)": "svg (无嵌入工作流)",
     "png": "png",
     "png (no embedded workflow)": "png (无嵌入工作流)",
+    
     "default": "默认",
     "box": "方形",
     "round": "圆形",

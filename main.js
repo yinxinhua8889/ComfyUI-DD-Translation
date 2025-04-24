@@ -1,6 +1,5 @@
 import { app } from "../../scripts/app.js";
 import { $el } from "../../scripts/ui.js";
-import { LOCALES } from "./LocaleMap.js";
 import { applyMenuTranslation, observeFactory } from "./MenuTranslate.js";
 // Translation Utils
 export class TUtils {
@@ -11,7 +10,6 @@ export class TUtils {
     Menu: {},
     Nodes: {},
     NodeCategory: {},
-    Locales: LOCALES,
   };
   static ELS = {};
 
@@ -48,7 +46,7 @@ export class TUtils {
     
     // 如果ComfyUI已经设置为中文，而且我们的插件设置为中文，则只翻译节点和自定义内容
     const isComfyUIChineseNative = document.documentElement.lang === 'zh-CN';
-    const isPluginChineseSetting = locale === 'zh-CN' || locale === 'zh-TW';
+    const isPluginChineseSetting = locale === 'zh-CN';
     const onlyTranslateNodes = isComfyUIChineseNative && isPluginChineseSetting;
     
     var url = "./agl/get_translation";
@@ -63,7 +61,6 @@ export class TUtils {
         if (key in resp) TUtils.T[key] = resp[key];
         else TUtils.T[key] = {};
       }
-      TUtils.T.Locales = LOCALES;
       
       // 如果ComfyUI已经原生支持中文，则过滤掉与原生支持冲突的菜单项
       if (onlyTranslateNodes) {
@@ -387,14 +384,18 @@ export class TUtils {
       app.ui.menuContainer.appendChild(
         $el("button.agl-swlocale-btn", {
           id: "swlocale-button",
-          textContent: TUtils.T.Menu["Switch Locale"] || "Switch Locale",
+          textContent: "汉",
           onclick: () => {
-            var localeLast = localStorage.getItem(TUtils.LOCALE_ID_LAST) || "en-US";
             var locale = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-            if (locale != "en-US" && localeLast != "en-US") localeLast = "en-US";
-            if (locale != localeLast) {
-              app.ui.settings.setSettingValue(TUtils.LOCALE_ID, localeLast);
+            // 简化为仅中英文切换
+            if (locale === "zh-CN") {
+              localStorage[TUtils.LOCALE_ID] = "en-US";
+            } else {
+              localStorage[TUtils.LOCALE_ID] = "zh-CN";
             }
+            setTimeout(() => {
+              location.reload();
+            }, 500);
           },
         })
       );
@@ -408,14 +409,18 @@ export class TUtils {
         var btn = new ComfyButton({
           icon: "translate",
           action: () => {
-            var localeLast = localStorage.getItem(TUtils.LOCALE_ID_LAST) || "en-US";
             var locale = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-            if (locale != "en-US" && localeLast != "en-US") localeLast = "en-US";
-            if (locale != localeLast) {
-              app.ui.settings.setSettingValue(TUtils.LOCALE_ID, localeLast);
+            // 简化为仅中英文切换
+            if (locale === "zh-CN") {
+              localStorage[TUtils.LOCALE_ID] = "en-US";
+            } else {
+              localStorage[TUtils.LOCALE_ID] = "zh-CN";
             }
+            setTimeout(() => {
+              location.reload();
+            }, 500);
           },
-          tooltip: TUtils.T.Menu["Switch Locale"] || "Switch Locale",
+          tooltip: "切换中英文",
           content: "",
           classList: "swlocale-button comfyui-button primary"
         });
@@ -434,67 +439,9 @@ export class TUtils {
     }
   }
   
+  // 移除设置菜单中的语言选项
   static addSettingsMenuOptions(app) {
-    let id = this.LOCALE_ID;
-    app.ui.settings.addSetting({
-      id: id,
-      name: "Locale",
-      type: (name, setter, value) => {
-        const options = [
-          ...Object.entries(TUtils.T.Locales).map((v) => {
-            let nativeName = v[1].nativeName;
-            let englishName = "";
-            if (v[1].englishName != nativeName) englishName = ` [${v[1].englishName}]`;
-            return $el("option", {
-              textContent: v[1].nativeName + englishName,
-              value: v[0],
-              selected: v[0] === value,
-            });
-          }),
-        ];
-
-        TUtils.ELS.select = $el(
-          "select",
-          {
-            style: {
-              marginBottom: "0.15rem",
-              width: "100%",
-            },
-            onchange: (e) => {
-              setter(e.target.value);
-            },
-          },
-          options
-        );
-
-        return $el("tr", [
-          $el("td", [
-            $el("label", {
-              for: id.replaceAll(".", "-"),
-              textContent: "Translation-langualge",
-            }),
-          ]),
-          $el("td", [
-            TUtils.ELS.select,
-            $el("div", {
-              style: {
-                display: "grid",
-                gap: "4px",
-                gridAutoFlow: "column",
-              },
-            }),
-          ]),
-        ]);
-      },
-      defaultValue: localStorage[id] || "en-US",
-      async onChange(value) {
-        if (!value) return;
-        if (localStorage[id] != undefined && value != localStorage[id]) {
-          TUtils.setLocale(value);
-        }
-        localStorage[id] = value;
-      },
-    });
+    // 不再添加设置菜单选项
   }
 }
 
@@ -516,7 +463,6 @@ const ext = {
       TUtils.applyMenuTranslation(app);
     }
     TUtils.addRegisterNodeDefCB(app);
-    TUtils.addSettingsMenuOptions(app);
     
     // 按钮总是添加，方便切换语言
     TUtils.addPanelButtons(app);

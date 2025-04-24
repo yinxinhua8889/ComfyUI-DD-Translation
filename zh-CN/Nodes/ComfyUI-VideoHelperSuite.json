@@ -481,7 +481,7 @@
             "loaded_height🟦": "选中高度🟦"
         }
     },
-    "VHS_VideoInfoSource": {
+    "VHS_VideoInfoLoaded": {
         "title": "视频信息（初始）",
         "inputs": {
             "video_info": "视频信息"
@@ -494,7 +494,7 @@
             "height🟦": "高度🟦"
         }
     },
-    "VHS_VideoInfoLoaded": {
+    "VHS_VideoInfoSource": {
         "title": "视频信息（已选中）",
         "inputs": {
             "video_info": "视频信息"

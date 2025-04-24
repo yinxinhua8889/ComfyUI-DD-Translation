@@ -1,6 +1,6 @@
 [project]
 name = "ComfyUI-DD-Translation"
-description = "A translation branch project.)"
+description = "A translation branch project."
 version = "1.0.0"
 license = "LICENSE"
 
