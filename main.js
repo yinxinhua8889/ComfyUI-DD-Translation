@@ -3,8 +3,7 @@ import { $el } from "../../scripts/ui.js";
 import { applyMenuTranslation, observeFactory } from "./MenuTranslate.js";
 // Translation Utils
 export class TUtils {
-  static LOCALE_ID = "AGL.Locale";
-  static LOCALE_ID_LAST = "AGL.LocaleLast";
+  static TRANSLATION_ENABLED = "DD.TranslationEnabled";
 
   static T = {
     Menu: {},
@@ -26,28 +25,29 @@ export class TUtils {
     "Comfy", "画面", "外观", "3D", "遮罩编辑器", 
   ];
 
-  static setLocale(locale) {
-    localStorage[TUtils.LOCALE_ID_LAST] = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-    localStorage[TUtils.LOCALE_ID] = locale;
+  static toggleTranslation() {
+    const enabled = localStorage.getItem(TUtils.TRANSLATION_ENABLED) !== "false";
+    localStorage.setItem(TUtils.TRANSLATION_ENABLED, enabled ? "false" : "true");
     setTimeout(() => {
       location.reload();
     }, 500);
   }
 
+  static isTranslationEnabled() {
+    // 如果没有设置过，默认启用翻译
+    return localStorage.getItem(TUtils.TRANSLATION_ENABLED) !== "false";
+  }
+
   static syncTranslation(OnFinished = () => {}) {
-    var locale = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-    if (localStorage.getItem(TUtils.LOCALE_ID) === null) {
-      // 可能菜单设置了zh-CN但localStorage为空，这时不会刷新
-      let slocal = localStorage.getItem(`Comfy.Settings.${TUtils.LOCALE_ID}`);
-      if (slocal) {
-        locale = slocal.replace(/^"(.*)"$/, "$1");
-      }
+    // 如果翻译被禁用，直接返回
+    if (!TUtils.isTranslationEnabled()) {
+      OnFinished();
+      return;
     }
     
-    // 如果ComfyUI已经设置为中文，而且我们的插件设置为中文，则只翻译节点和自定义内容
+    // 如果ComfyUI已经设置为中文，则只翻译节点和自定义内容
     const isComfyUIChineseNative = document.documentElement.lang === 'zh-CN';
-    const isPluginChineseSetting = locale === 'zh-CN';
-    const onlyTranslateNodes = isComfyUIChineseNative && isPluginChineseSetting;
+    const onlyTranslateNodes = isComfyUIChineseNative;
     
     var url = "./agl/get_translation";
     var request = new XMLHttpRequest();
@@ -91,7 +91,7 @@ export class TUtils {
       
       OnFinished();
     };
-    request.send(`locale=${locale}`);
+    request.send(`locale=zh-CN`);
   }
   
   static enhandeDrawNodeWidgets() {
@@ -162,6 +162,9 @@ export class TUtils {
   }
 
   static applyNodeTypeTranslation(app) {
+    // 如果翻译被禁用，直接返回
+    if (!TUtils.isTranslationEnabled()) return;
+    
     for (let nodeName in LiteGraph.registered_node_types) {
       this.applyNodeTypeTranslationEx(nodeName);
     }
@@ -248,6 +251,9 @@ export class TUtils {
   }
 
   static applyMenuTranslation(app) {
+    // 如果翻译被禁用，直接返回
+    if (!TUtils.isTranslationEnabled()) return;
+    
     // 搜索菜单 常驻菜单
     applyMenuTranslation(TUtils.T);
     // Queue size 单独处理
@@ -265,6 +271,9 @@ export class TUtils {
   }
 
   static applyContextMenuTranslation(app) {
+    // 如果翻译被禁用，直接返回
+    if (!TUtils.isTranslationEnabled()) return;
+    
     // 右键上下文菜单
     var f = LGraphCanvas.prototype.getCanvasMenuOptions;
     LGraphCanvas.prototype.getCanvasMenuOptions = function () {
@@ -376,57 +385,98 @@ export class TUtils {
     };
   }
   static addPanelButtons(app) {
-    // 检查是否已有语言切换按钮
-    if(document.getElementById("swlocale-button")) return;
+    // 检查是否已有切换按钮
+    if(document.getElementById("toggle-translation-button")) return;
     
-    // 添加旧版UI的语言切换按钮
-    if(document.querySelector(".comfy-menu") && !document.getElementById("swlocale-button")) {
+    const translationEnabled = TUtils.isTranslationEnabled();
+    
+    // 创建样式元素，添加按钮动画效果
+    const styleElem = document.createElement('style');
+    styleElem.textContent = `
+      @keyframes flowEffect {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      .dd-translation-active {
+        background: linear-gradient(90deg, #e6a919, #f4d03f, #f9e79f, #f4d03f, #e6a919);
+        background-size: 300% 100%;
+        color: #333;
+        border: none;
+        animation: flowEffect 5s ease infinite;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        box-shadow: 0 0 5px rgba(244, 208, 63, 0.5);
+        transition: all 0.3s ease;
+      }
+      
+      .dd-translation-inactive {
+        background: linear-gradient(90deg, #1a5276, #2980b9, #3498db, #2980b9, #1a5276);
+        background-size: 300% 100%;
+        color: white;
+        border: none;
+        animation: flowEffect 7s ease infinite;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        transition: all 0.3s ease;
+      }
+      
+      .dd-translation-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      }
+    `;
+    document.head.appendChild(styleElem);
+    
+    // 添加旧版UI的切换按钮
+    if(document.querySelector(".comfy-menu") && !document.getElementById("toggle-translation-button")) {
       app.ui.menuContainer.appendChild(
-        $el("button.agl-swlocale-btn", {
-          id: "swlocale-button",
-          textContent: "汉",
+        $el("button.dd-translation-btn", {
+          id: "toggle-translation-button",
+          textContent: translationEnabled ? "附加翻译" : "官方实现",
+          className: translationEnabled ? "dd-translation-btn dd-translation-active" : "dd-translation-btn dd-translation-inactive",
+          style: {
+            fontWeight: "bold",
+            fontSize: "12px",
+            padding: "5px 10px",
+            borderRadius: "4px",
+          },
+          title: translationEnabled ? "已开启额外附加翻译" : "已使用官方原生翻译",
           onclick: () => {
-            var locale = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-            // 简化为仅中英文切换
-            if (locale === "zh-CN") {
-              localStorage[TUtils.LOCALE_ID] = "en-US";
-            } else {
-              localStorage[TUtils.LOCALE_ID] = "zh-CN";
-            }
-            setTimeout(() => {
-              location.reload();
-            }, 500);
+            TUtils.toggleTranslation();
           },
         })
       );
     }
     
-    // 添加新版UI的语言切换按钮
+    // 添加新版UI的切换按钮
     try {
       if(window?.comfyAPI?.button?.ComfyButton && window?.comfyAPI?.buttonGroup?.ComfyButtonGroup) {
         var ComfyButtonGroup = window.comfyAPI.buttonGroup.ComfyButtonGroup;
         var ComfyButton = window.comfyAPI.button.ComfyButton;
+        
         var btn = new ComfyButton({
-          icon: "translate",
           action: () => {
-            var locale = localStorage.getItem(TUtils.LOCALE_ID) || "en-US";
-            // 简化为仅中英文切换
-            if (locale === "zh-CN") {
-              localStorage[TUtils.LOCALE_ID] = "en-US";
-            } else {
-              localStorage[TUtils.LOCALE_ID] = "zh-CN";
-            }
-            setTimeout(() => {
-              location.reload();
-            }, 500);
+            TUtils.toggleTranslation();
           },
-          tooltip: "切换中英文",
-          content: "",
-          classList: "swlocale-button comfyui-button primary"
+          tooltip: translationEnabled ? "已开启额外附加翻译" : "已使用官方原生翻译",
+          content: translationEnabled ? "附加翻译" : "官方实现",
+          classList: "toggle-translation-button"
         });
         
-        if(btn.iconElement) {
-          btn.iconElement.style.width = "1.2rem";
+        // 设置按钮样式
+        if(btn.element) {
+          btn.element.classList.add("dd-translation-btn");
+          btn.element.classList.add(translationEnabled ? "dd-translation-active" : "dd-translation-inactive");
+          btn.element.style.fontWeight = "bold";
+          btn.element.style.fontSize = "12px";
+          btn.element.style.padding = "5px 10px";
+          btn.element.style.borderRadius = "4px";
         }
         
         var group = new ComfyButtonGroup(btn.element);
@@ -437,11 +487,6 @@ export class TUtils {
     } catch(e) {
       console.log("Error adding new UI language button:", e);
     }
-  }
-  
-  // 移除设置菜单中的语言选项
-  static addSettingsMenuOptions(app) {
-    // 不再添加设置菜单选项
   }
 }
 
@@ -456,15 +501,18 @@ const ext = {
     // 检查ComfyUI是否已原生中文
     const isComfyUIChineseNative = document.documentElement.lang === 'zh-CN';
     
-    TUtils.applyNodeTypeTranslation(app);
-    TUtils.applyContextMenuTranslation(app);
-    // 如果ComfyUI已经原生支持中文，只翻译节点和自定义内容
-    if (!isComfyUIChineseNative) {
-      TUtils.applyMenuTranslation(app);
+    // 只有在翻译启用时才应用翻译
+    if (TUtils.isTranslationEnabled()) {
+      TUtils.applyNodeTypeTranslation(app);
+      TUtils.applyContextMenuTranslation(app);
+      // 如果ComfyUI已经原生支持中文，只翻译节点和自定义内容
+      if (!isComfyUIChineseNative) {
+        TUtils.applyMenuTranslation(app);
+      }
+      TUtils.addRegisterNodeDefCB(app);
     }
-    TUtils.addRegisterNodeDefCB(app);
     
-    // 按钮总是添加，方便切换语言
+    // 按钮总是添加，方便切换翻译
     TUtils.addPanelButtons(app);
   },
   async addCustomNodeDefs(defs, app) {
@@ -495,16 +543,16 @@ const ext = {
     // console.log("[logging]", "register custom nodes");
   },
   loadedGraphNode(node, app) {
-    // Fires for each node when loading/dragging/etc a workflow json or png
-    // If you break something in the backend and want to patch workflows in the frontend
-    // This fires for every node on each load so only log once
-    // delete ext.loadedGraphNode;
-    TUtils.applyNodeTranslation(node);
+    // 只有在翻译启用时才应用翻译
+    if (TUtils.isTranslationEnabled()) {
+      TUtils.applyNodeTranslation(node);
+    }
   },
   nodeCreated(node, app) {
-    // Fires every time a node is constructed
-    // You can modify widgets/add handlers/etc here
-    TUtils.applyNodeTranslation(node);
+    // 只有在翻译启用时才应用翻译
+    if (TUtils.isTranslationEnabled()) {
+      TUtils.applyNodeTranslation(node);
+    }
   },
 };
 
