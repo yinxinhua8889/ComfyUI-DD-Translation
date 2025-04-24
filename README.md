@@ -2,6 +2,10 @@ ComfyUI 中文翻译插件
 
 本项目是基于 [AIGODLIKE-ComfyUI-Translation](https://github.com/AIGODLIKE/AIGODLIKE-ComfyUI-Translation) 的衍生分支，在此特别感谢原项目的开发者们对开源社区的杰出贡献。正是因为有人愿意成为先驱者，后人才能继承前人的薪火.
 
+==视频展示==
+
+https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
+
 ## 项目背景
 
 由于原作者已停止更新，而 ComfyUI 原生对中文的支持进展缓慢，特别是对自定义节点的适配，因此我决定继续维护这个项目，使其能够：
