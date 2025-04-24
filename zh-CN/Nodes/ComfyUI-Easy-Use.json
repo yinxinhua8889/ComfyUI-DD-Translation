@@ -3030,5 +3030,14 @@
         "inputs": {
             "anything": "输入任何"
         }
-    }
+    },
+    "easy prompt":{
+        "prefix": "前缀",
+        "subject": "主体",
+        "action": "动作",
+        "clothes": "衣服",
+        "environment": "环境",
+        "background": "背景",
+        "nsfw": "为爱鼓掌"
+    }   
   }
