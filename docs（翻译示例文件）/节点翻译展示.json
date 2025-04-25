@@ -1,6 +1,6 @@
 {
     "KSampler": {
-        "title": "KSampler[example translation]",
+        "title": "K采样器",
         "inputs": {
             "model": "模型",
             "positive": "正向提示词",

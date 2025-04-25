@@ -184,4 +184,4 @@ def unregister():
 register()
 atexit.register(unregister)
 NODE_CLASS_MAPPINGS = {}
-WEB_DIRECTORY = "./"
+WEB_DIRECTORY = "./js"
