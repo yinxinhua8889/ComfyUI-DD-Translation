@@ -381,7 +381,7 @@
             "model": "模型",
             "positive": "正面条件",
             "negative": "负面条件",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "widgets": {
             "seed": "随机种",
@@ -407,7 +407,7 @@
             "model": "模型",
             "positive": "正面条件",
             "negative": "负面条件",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "widgets": {
             "add_noise": "添加噪波",
@@ -435,7 +435,7 @@
         "title": "K采样器(Inspire)",
         "inputs": {
             "basic_pipe": "基础节点束",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "widgets": {
             "seed": "随机种",
@@ -462,7 +462,7 @@
         "title": "K采样器(高级Inspire)",
         "inputs": {
             "basic_pipe": "基础节点束",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "widgets": {
             "add_noise": "添加噪波",
@@ -746,7 +746,7 @@
             "model": "模型",
             "positive": "正面条件",
             "negative": "负面条件",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "widgets": {
             "seed": "随机种",
@@ -775,7 +775,7 @@
             "model": "模型",
             "positive": "正面条件",
             "negative": "负面条件",
-            "latent_image": "Latent",
+            "latent_image": "潜空间",
             "prev_progress_latent_opt": "前过程Latent"
         },
         "widgets": {
