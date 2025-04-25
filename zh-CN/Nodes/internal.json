@@ -104,7 +104,7 @@
             "guider": "引导",
             "sampler": "采样器",
             "sigmas": "Sigmas",
-            "latent_image": "Latent"
+            "latent_image": "潜空间"
         },
         "outputs": {
             "output": "输出",
