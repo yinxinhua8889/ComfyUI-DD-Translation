@@ -532,6 +532,11 @@ export class TUtils {
         .dd-translation-btn:hover {
           transform: translateY(-1px);
           box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+          cursor: pointer;
+        }
+
+        .dd-translation-btn {
+          cursor: pointer;
         }
       `;
       document.head.appendChild(styleElem);
