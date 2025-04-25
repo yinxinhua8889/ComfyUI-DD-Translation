@@ -48,6 +48,7 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 ### 2025-4-25【重大更新！！完全重构插件，性能提升巨大】
 - 补充完善ComfyUI-Manager管理器界面翻译，包括筛选选项和表格标题
 - 新增ComfyUI-Detail-Daemon插件的完整翻译，包括"细节魔灵图表Sigma值"、"细节魔灵采样器"、"倍增Sigma值"和"谎言Sigma采样器"四个节点
+- 新增PixelOE插件的完整翻译，包括"预调整尺寸"、"轮廓扩展"和"像素轮廓增强"三个节点
 - 完全重构代码结构，引入模块化设计，显著提高执行效率
 - 新增utils.js工具模块，将通用功能抽离，减少代码重复
 - 将XMLHttpRequest同步请求替换为异步Fetch API，避免主线程阻塞
