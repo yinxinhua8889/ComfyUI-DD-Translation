@@ -16,6 +16,7 @@
     "Anything Everywhere show links": "全局输入显示连接",
     "stop": "停用",
     "Anything Everywhere turn animation off when running": "执行工作流时关闭动画",
+    "Anything Everywhere logging": "日志记录",
 
     "Reject UE Links": "禁用全局输入",
     "Allow UE Links": "启用全局输入",
@@ -25,5 +26,28 @@
     "Remove group restriction": "移除组内限制",
     "Show UE links": "显示全局输入连线",
     "Hide Ue links": "隐藏全局输入连线",
-    "Convert all UEs to real links": "将全局输入连线转为实际连线"
+    "Convert all UEs to real links": "将全局输入连线转为实际连线",
+
+    "All off": "全部关闭",
+    "Selected nodes": "选中的节点",
+    "Mouseover node": "鼠标悬停节点",
+    "Selected and mouseover nodes": "选中和鼠标悬停节点",
+    "All on": "全部开启",
+
+    "Errors Only": "仅错误",
+    "Problems": "问题",
+    "Information": "信息",
+    "Detail": "详细",
+
+    "Both": "两者",
+    "Off": "关闭",
+    "Dots": "点状",
+    "Pulse": "脉冲",
+
+    "block_graph_validation": "阻止图表验证",
+    "Block workflow validation": "阻止工作流验证",
+    "Turn off workflow validation (which tends to replace UE links with real ones)": "关闭工作流验证（这可能会用真实链接替换UE链接）",
+
+    "stop_animation_when_running": "执行时停止动画",
+    "logging": "日志记录"
 }

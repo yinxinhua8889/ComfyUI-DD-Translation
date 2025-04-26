@@ -48,6 +48,7 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 ### 2025-4-26
 - 移除了RG节点标签节点(Label Node)的翻译，避免功能异常和重复刷新问题
 - 注意：标签节点现在将显示原始英文名称，用户需要通过搜索"Label"来找到此节点
+- 补充完善 CG-Use-Everywhere 最新节点的翻译。
 
 ### 2025-4-25【重大更新！！完全重构插件，性能提升巨大】
 - 补充完善ComfyUI-Manager管理器界面翻译，包括筛选选项和表格标题
