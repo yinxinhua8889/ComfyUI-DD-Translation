@@ -1,0 +1,60 @@
+{
+    "GroupExecutor": {
+        "title": "🎈组执行器",
+        "description": "执行给定组中的节点",
+        "widgets": {
+            "groupCount": "组数量",
+            "repeatCount": "重复次数",
+            "delaySeconds": "延迟秒数",
+            "Group #1": "组 #1",
+            "Execute Groups": "执行组",
+            "Cancel": "取消"
+        }
+    },
+    "GroupExecutorSingle": {
+        "title": "🎈单次组执行器",
+        "description": "执行单个指定组中的节点",
+        "inputs": {
+            "signal": "信号"
+        },
+        "outputs": {
+            "SIGNAL": "信号"
+        },
+        "widgets": {
+            "group_name": "组名称",
+            "repeat_count": "重复次数",
+            "delay_seconds": "延迟秒数",
+            "Execute Groups": "执行组",
+            "Cancel": "取消" 
+        }
+    },
+    "GroupExecutorRepeater": {
+        "title": "🎈组重复执行器",
+        "description": "重复执行指定组中的节点",
+        "inputs": {
+            "signal": "信号"
+        },
+        "outputs": {
+            "SIGNAL": "信号"
+        },
+        "widgets": {
+            "group_name": "组名称",
+            "repeat_count": "重复次数",
+            "delay_seconds": "延迟秒数",
+            "group_delay": "组延迟",
+            "Execute Groups": "执行组",
+            "Cancel": "取消"
+        }
+    },
+    "GroupExecutorSender": {
+        "title": "🎈组发送器",
+        "description": "向组执行器发送信号",
+        "inputs": {
+            "signal": "信号"
+        },
+        "widgets": {
+            "group_name": "组名称",
+            "group_delay": "组延迟"
+        }
+    }
+}
