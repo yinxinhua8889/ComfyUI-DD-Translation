@@ -46,7 +46,7 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 ## 更新日志
 
 ### 2025-4-26
-- 移除了RG节点标签节点(Label Node)的翻译，避免功能异常和重复刷新问题
+- 移除了RG节点标签节点Label (rgthree)的翻译，避免功能异常和重复刷新问题
 - 注意：标签节点现在将显示原始英文名称，用户需要通过搜索"Label"来找到此节点
 - 补充完善 CG-Use-Everywhere 最新节点的翻译。
 
