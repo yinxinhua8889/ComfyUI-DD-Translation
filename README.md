@@ -45,6 +45,10 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 
 ## 更新日志
 
+### 2025-4-26
+- 移除了RG节点标签节点(Label Node)的翻译，避免功能异常和重复刷新问题
+- 注意：标签节点现在将显示原始英文名称，用户需要通过搜索"Label"来找到此节点
+
 ### 2025-4-25【重大更新！！完全重构插件，性能提升巨大】
 - 补充完善ComfyUI-Manager管理器界面翻译，包括筛选选项和表格标题
 - 新增ComfyUI-Detail-Daemon插件的完整翻译，包括"细节魔灵图表Sigma值"、"细节魔灵采样器"、"倍增Sigma值"和"谎言Sigma采样器"四个节点

@@ -446,9 +446,6 @@
             "OPT_CONNECTION": "可选连接"
         }
     },
-    "Label (rgthree)": {
-        "title": "标签"
-    },
     "Image Comparer (rgthree)": {
         "title": "图像对比",
         "inputs": {
