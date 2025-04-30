@@ -67,6 +67,7 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 - 将XMLHttpRequest同步请求替换为异步Fetch API，避免主线程阻塞
 - 优化MutationObserver使用方式，减少观察者数量，降低内存占用
 - 重写DOM处理逻辑，减少不必要的重复处理
+- 新增翻译数据缓存机制，基于localStorage存储翻译结果，减少重复加载，显著提升页面响应速度
 - 【提供了详细的开发文档，便于社区贡献新的翻译内容】
 
 ### 2025-4-24
