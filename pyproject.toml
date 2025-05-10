@@ -3,12 +3,12 @@ name = "ComfyUI-DD-Translation"
 description = "A translation branch project."
 version = "1.0.0"
 license = "LICENSE"
-dependencies = ["git+https://github.com/1761696257/ComfyUI-DD-Translation/tree/Dontdrunk.git"]
+dependencies = ["git+https://github.com/Dontdrunk/ComfyUI-DD-Translation/tree/Dontdrunk.git"]
 
 [project.urls]
-Repository = "https://github.com/1761696257/ComfyUI-DD-Translation/tree/Dontdrunk"
+Repository = "https://github.com/Dontdrunk/ComfyUI-DD-Translation/tree/Dontdrunk"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = "1761696257"
+PublisherId = "Dontdrunk"
 DisplayName = "ComfyUI-DD-Translation"
