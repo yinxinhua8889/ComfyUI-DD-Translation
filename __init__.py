@@ -3,13 +3,9 @@ import json
 import platform
 import sys
 import numpy as np
-import builtins
-import torch
 import shutil
-import hashlib
 import atexit
 import server
-import gc
 import execution
 import folder_paths
 from functools import lru_cache
@@ -18,8 +14,8 @@ from pathlib import Path
 from PIL import Image
 from PIL.PngImagePlugin import PngInfo
 
-VERSION = "0.0.1"
-ADDON_NAME = "AIGODLIKE-COMFYUI-TRANSLATION"
+VERSION = "1.0.0"
+ADDON_NAME = "ComfyUI-DD-Translation"
 COMFY_PATH = Path(folder_paths.__file__).parent
 CUR_PATH = Path(__file__).parent
 
@@ -185,3 +181,7 @@ register()
 atexit.register(unregister)
 NODE_CLASS_MAPPINGS = {}
 WEB_DIRECTORY = "./js"
+
+# 插件信息
+__all__ = ["NODE_CLASS_MAPPINGS", "WEB_DIRECTORY"]
+__version__ = VERSION
