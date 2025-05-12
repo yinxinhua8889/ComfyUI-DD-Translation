@@ -35,7 +35,7 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 2. 将整个文件夹放入 ComfyUI 的 `custom_nodes` 目录下
 3. 重启 ComfyUI
 
-或者直接在Manager和启动器中使用git进行安装（推荐）
+或者直接在Manager或启动器中使用git进行安装（推荐）
 
 `https://github.com/1761696257/ComfyUI-DD-Translation.git`
 
