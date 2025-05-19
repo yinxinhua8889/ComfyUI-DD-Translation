@@ -43,10 +43,15 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 
 欢迎提交 Pull Request 或 Issue 来帮助改进翻译质量或添加新的翻译内容。
 
+Github贡献者名单：msola-ht
+
 ## 更新日志
 
+### 2025-5-20
+审查并合并 msola-ht贡献者给ComfyUI_LayerStyle_Advance 插件>Joy Beta系列节点的翻译
+
 ### 2025-5-12
-重构插件cg-use-everywhere 6.1最新版本的翻译内容
+- 重构插件cg-use-everywhere 6.1最新版本的翻译内容
 
 ### 2025-4-28
 - 新增 Comfyui-LG_GroupExecutor 插件的节点翻译补充，包括"🎈图像发送器"、"🎈图像接收器"、"🎈列表图像分割器"、"🎈列表蒙版分割器"、"🎈列表图像重复器"、"🎈列表蒙版重复器"和"🎈累积预览"等节点
