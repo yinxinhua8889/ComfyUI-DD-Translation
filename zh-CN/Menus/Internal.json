@@ -172,9 +172,11 @@
     "svg (no embedded workflow)": "svg (无嵌入工作流)",
     "png": "png",
     "png (no embedded workflow)": "png (无嵌入工作流)",
-    
     "default": "默认",
     "box": "方形",
     "round": "圆形",
-    "card": "卡片"
+    "card": "卡片",
+    
+    "cnr_id": "组件ID",
+    "widget_ue_connectable": "可连接组件"
 }

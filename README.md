@@ -48,7 +48,10 @@ Github贡献者名单：msola-ht
 ## 更新日志
 
 ### 2025-5-20
-审查并合并 msola-ht贡献者给ComfyUI_LayerStyle_Advance 插件>Joy Beta系列节点的翻译
+- 审查并合并 msola-ht贡献者给ComfyUI_LayerStyle_Advance 插件>Joy Beta系列节点的翻译
+- 添加ComfyUI-GGUF完整翻译
+- 进一步优化界面翻译
+- 完善翻译贡献文档
 
 ### 2025-5-12
 - 重构插件cg-use-everywhere 6.1最新版本的翻译内容
