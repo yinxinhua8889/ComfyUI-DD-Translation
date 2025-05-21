@@ -47,6 +47,9 @@ Github贡献者名单：msola-ht
 
 ## 更新日志
 
+### 2025-5-21
+- 删除了ComfyUI-Manager的重启按钮的翻译，因为它会导致一直请求UI更新，与ComfyUI-Manager抢夺UI更新权限，现在修复了这个问题。
+
 ### 2025-5-20
 - 审查并合并 msola-ht贡献者给ComfyUI_LayerStyle_Advance 插件>Joy Beta系列节点的翻译
 - 添加ComfyUI-GGUF完整翻译
