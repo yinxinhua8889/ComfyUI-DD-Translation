@@ -52,10 +52,11 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 
 Github贡献者名单：msola-ht
 
-## 更新日志
+## 更新日
 
 ### v1.7.1 (2025-5-21)
 - 删除了ComfyUI-Manager的重启按钮的翻译，因为它会导致一直请求UI更新，与ComfyUI-Manager抢夺UI更新权限，现在修复了这个问题。
+- 修复了模型侧边栏的一些显示BUG
 
 ### v1.7.0 (2025-5-20)
 - 审查并合并 msola-ht贡献者给ComfyUI_LayerStyle_Advance 插件>Joy Beta系列节点的翻译
