@@ -3,7 +3,6 @@
 
     "LoraBlockWeight": "LoRA分层权重",
     "SEGS": "SEGS",
-        "ControlNet": "ControlNet",
     "Detecotr": "检测器",
     "a1111_compat": "A1111适配",
     "__for_testing": "测试",
