@@ -52,7 +52,10 @@ https://github.com/user-attachments/assets/1ec662ba-da6c-4712-8be7-61168b08940e
 
 Github贡献者名单：msola-ht
 
-## 更新日
+## 更新日志
+
+### v1.8.0 (2025-5-27)
+更新ComfyUI-WanVideoWrapper KJ系列节点的完整翻译
 
 ### v1.7.1 (2025-5-21)
 - 删除了ComfyUI-Manager的重启按钮的翻译，因为它会导致一直请求UI更新，与ComfyUI-Manager抢夺UI更新权限，现在修复了这个问题。
